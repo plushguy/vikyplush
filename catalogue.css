@@ -1,0 +1,307 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+.logo {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 70px;
+    animation: logoMove 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoMove {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+header {
+    font-family: 'Lobster', cursive;
+    background-color: #f3ff4f;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+
+    margin: 0;
+}
+
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f3ff4f;
+}
+
+.carrito-icono {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    background: #f8f8f8;
+    padding: 5px 15px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-contenido {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#items-carrito {
+    margin: 20px 0;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.item-carrito button {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#total-carrito {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: right;
+}
+
+.modal-contenido button {
+    background: #f3ff4f;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botones-producto {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.boton-detalles {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #f3ff4f;
+    color: #333;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-carrito {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #f3ff4f;
+    color: #333;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.boton-detalles:hover, .boton-carrito:hover {
+    background-color: #00e1ff;
+    color: white;
+}
+
+.notificacion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #28A745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.filtro {
+    background: #444;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.filtro label {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.filtro select {
+    padding: 10px 12px;
+    font-size: 1em;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filtro select:hover {
+    border-color: #f3ff4f;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.foto {
+    background-color: #fff;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.foto img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.foto img:hover {
+    transform: scale(1.1);
+}
+
+.foto h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.foto p {
+    color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.contact-form {
+    background-color: #666;
+    color: #ffffff;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input, .contact-form textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    background-color: #f3ff4f;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.contact-form button:hover {
+    background-color: #00e1ff;
+}

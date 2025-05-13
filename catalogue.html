@@ -1,0 +1,410 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="catalogue.css">
+    <title>Vicky's Plushies</title>
+    <link rel="icon" href="img/logo.png">
+</head>
+<body>
+    <header>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <img src="img/logo.png" class="logo" alt="Logo de Vicky's Plushies">
+        <h1>Vicky's Plushies</h1>
+        <p>Fragmentos de felicidad</p>
+    </header>
+    <nav>
+        <a href="index.html">INICIO</a>
+        <div class="carrito-icono" onclick="mostrarCarrito()">
+            🛒 <span id="contador-carrito">0</span>
+        </div>
+    </nav>
+    
+    <!-- Modal del Carrito -->
+    <div id="modal-carrito" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarCarrito()">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="items-carrito"></div>
+            <div id="total-carrito">Total: $0.00</div>
+            <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+        </div>
+    </div>
+    
+    <div class="filtro">
+        <label for="mostrador">Mostrar:</label>
+        <select id="mostrador" onchange="filtrarCategoria(this.value)">
+            <option value="all">Todos</option>
+            <option value="animales">Peluches de animales</option>
+            <option value="personajes">Peluches de personajes</option>
+        </select>
+    </div>
+    <div class="container">
+        <section class="imagenes">
+            <!-- Producto 1 -->
+            <div class="foto animales">
+                <img src="img/carrot.jpg">
+                <h3>Zanahoria Conejil</h3>
+                <p>El mejor compañero en las pijamadas.</p>
+                <p>$10.99</p>
+                <div class="botones-producto">
+                    <a href="producto(0001).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Zanahoria Conejil', 10.99)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 2 -->
+            <div class="foto personajes">
+                <img src="img/dino.jpg">
+                <h3>Rosendo</h3>
+                <p>El dinosaurio más aterrador que puedas conocer.</p>
+                <p>$12.99</p>
+                <div class="botones-producto">
+                    <a href="producto(0002).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Rosendo', 12.99)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 3 -->
+            <div class="foto animales">
+                <img src="img/nutria.png">
+                <h3>Nutria feliz</h3>
+                <p>Una nutria con un recuerdo especial, ¡no se lo quites!</p>
+                <p>$13.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0003).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Nutria feliz', 13.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 4 -->
+            <div class="foto animales">
+                <img src="img/capybara.png">
+                <h3>Capybara</h3>
+                <p>Este chico tranquilo se la pasa hablando con su amiga gaviota.</p>
+                <p>$6.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0004).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Capybara', 6.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 5 -->
+            <div class="foto animales">
+                <img src="img/chango.png">
+                <h3>Peluche de mono</h3>
+                <p>Este mono hace puras monadas.</p>
+                <p>$10.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0005).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de mono', 10.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 6 -->
+            <div class="foto personajes">
+                <img src="img/pou.png">
+                <h3>Pou triste</h3>
+                <p>Hazlo sentir mejor.</p>
+                <p>$16.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0006).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Pou triste', 16.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 7 -->
+            <div class="foto personajes">
+                <img src="img/Stitch.jpg">
+                <h3>Stitch</h3>
+                <p>Es más inteligente que una súper-computadora.</p>
+                <p>$18.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0007).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Stitch', 18.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 8 -->
+            <div class="foto personajes">
+                <img src="img/snoopy.png">
+                <h3>Snoopy</h3>
+                <p>Un aliado silencioso y muy astuto para hacer bromas pesadas.</p>
+                <p>$10</p>
+                <div class="botones-producto">
+                    <a href="producto(0008).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Snoopy', 10)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 9 -->
+            <div class="foto animales">
+                <img src="img/pavo.png">
+                <h3>Peluche de pavo</h3>
+                <p>Preparado para celebrar.</p>
+                <p>$11.99</p>
+                <div class="botones-producto">
+                    <a href="producto(0009).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de pavo', 11.99)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 10 -->
+            <div class="foto animales">
+                <img src="img/erizo.png">
+                <h3>Peluche de Erizo</h3>
+                <p>Tiene un pequeño regalo para ti.</p>
+                <p>$18.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0010).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de Erizo', 18.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 11 -->
+            <div class="foto personajes">
+                <img src="img/cochino.jpg">
+                <h3>Peluche de cerdito</h3>
+                <p>Le encanta comer mucho y dormir en lugares suaves.</p>
+                <p>$18.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0011).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de cerdito', 18.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 12 -->
+            <div class="foto animales">
+                <img src="img/castor.jpg">
+                <h3>Peluche de castor</h3>
+                <p>Dale madera para que pueda hacer su presa.</p>
+                <p>$10.00</p>
+                <div class="botones-producto">
+                    <a href="producto(0012).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de castor', 10.00)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 13 -->
+            <div class="foto animales">
+                <img src="img/rana.jpg">
+                <h3>Peluche de rana</h3>
+                <p>¡No le quites su zanahoria!</p>
+                <p>$18.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0013).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de rana', 18.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 14 -->
+            <div class="foto personajes">
+                <img src="img/bobesponja.jpg">
+                <h3>Bob Esponja</h3>
+                <p>Está listo! Le encanta preparar cangreburgers.</p>
+                <p>$15.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0014).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Bob Esponja', 15.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 15 -->
+            <div class="foto animales">
+                <img src="img/borrego.jpg">
+                <h3>Peluche de borrego</h3>
+                <p>Un borrego esponjoso para abrazar.</p>
+                <p>$18.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0015).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de borrego', 18.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 16 -->
+            <div class="foto animales">
+                <img src="img/changuito.jpg">
+                <h3>Peluche de monito</h3>
+                <p>Un amigo tranquilo que gusta de dormir y pasarla bien.</p>
+                <p>$8.00</p>
+                <div class="botones-producto">
+                    <a href="producto(0016).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de monito', 8.00)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 17 -->
+            <div class="foto animales">
+                <img src="img/capybaramecha.jpg">
+                <h3>Peluche de Capybara mecanizado</h3>
+                <p>Un tierno amigo que camina contigo.</p>
+                <p>$20.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0017).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de Capybara mecanizado', 20.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 18 -->
+            <div class="foto animales">
+                <img src="img/elefante.jpg">
+                <h3>Peluche de elefante</h3>
+                <p>Muy emocionado de estar contigo.</p>
+                <p>$14</p>
+                <div class="botones-producto">
+                    <a href="producto(0018).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de elefante', 14)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 19 -->
+            <div class="foto animales">
+                <img src="img/eziro.jpg">
+                <h3>Peluche de erizo</h3>
+                <p>Es un amor, pero, ¡cuidado con sus espinas!.</p>
+                <p>$12</p>
+                <div class="botones-producto">
+                    <a href="producto(0019).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de erizo', 12)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 20 -->
+            <div class="foto animales">
+                <img src="img/gato.jpg">
+                <h3>Peluche de gato</h3>
+                <p>Te dará buena suerte en tus tareas.</p>
+                <p>$10</p>
+                <div class="botones-producto">
+                    <a href="producto(0020).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de gato', 10)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 21 -->
+            <div class="foto animales">
+                <img src="img/mono.jpg">
+                <h3>Peluche de mono</h3>
+                <p>Un travieso mono que usa una linda playera.</p>
+                <p>$13.50</p>
+                <div class="botones-producto">
+                    <a href="producto(0021).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de mono', 13.50)">🛒 Añadir</button>
+                </div>
+            </div>
+            
+            <!-- Producto 22 -->
+            <div class="foto animales">
+                <img src="img/zorro.jpg">
+                <h3>Peluche de Zorro</h3>
+                <p>El malo en muchos cuentos.</p>
+                <p>$16</p>
+                <div class="botones-producto">
+                    <a href="producto(0022).html" class="boton-detalles">Ver detalles</a>
+                    <button class="boton-carrito" onclick="agregarAlCarrito('Peluche de Zorro', 16)">🛒 Añadir</button>
+                </div>
+            </div>
+        </section>
+    </div>    
+    <footer>
+        <p>&copy; 2025 Vicky's Plushies. Todos los derechos reservados.</p>
+        <p>Dirección: Fraccionamiento Delicias II</p>
+        <p>Teléfono: 664-670-7819</p>
+    </footer>
+    <script>
+        let carrito = [];
+        function mostrarCarrito() {
+            document.getElementById('modal-carrito').style.display = 'block';
+            actualizarCarrito();
+        }
+        function cerrarCarrito() {
+            document.getElementById('modal-carrito').style.display = 'none';
+        }
+        function agregarAlCarrito(nombre, precio) {
+            const productoExistente = carrito.find(item => item.nombre === nombre);
+            if (productoExistente) {
+                productoExistente.cantidad++;
+            } else {
+                carrito.push({
+                    nombre: nombre,
+                    precio: parseFloat(precio),
+                    cantidad: 1
+                });
+            }
+            document.getElementById('contador-carrito').textContent = carrito.reduce((total, item) => total + item.cantidad, 0);
+            const notificacion = document.createElement('div');
+            notificacion.className = 'notificacion';
+            notificacion.textContent = `✔️ ${nombre} añadido al carrito`;
+            document.body.appendChild(notificacion);
+            setTimeout(() => {
+                notificacion.remove();
+            }, 2000);
+        }
+        function actualizarCarrito() {
+            const itemsCarrito = document.getElementById('items-carrito');
+            itemsCarrito.innerHTML = '';
+            if (carrito.length === 0) {
+                itemsCarrito.innerHTML = '<p>Tu carrito está vacío</p>';
+                document.getElementById('total-carrito').textContent = 'Total: $0.00';
+                return;
+            }
+            let total = 0;
+            carrito.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'item-carrito';
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                itemElement.innerHTML = `
+                    <span>${item.nombre} x${item.cantidad}</span>
+                    <span>$${subtotal.toFixed(2)}</span>
+                    <button onclick="eliminarDelCarrito(${index})">Eliminar</button>
+                `;
+                itemsCarrito.appendChild(itemElement);
+            });
+            document.getElementById('total-carrito').textContent = `Total: $${total.toFixed(2)}`;
+        }
+        function eliminarDelCarrito(index) {
+            if (carrito[index].cantidad > 1) {
+                carrito[index].cantidad--;
+            } else {
+                carrito.splice(index, 1);
+            }
+            document.getElementById('contador-carrito').textContent = carrito.reduce((total, item) => total + item.cantidad, 0);
+            
+            actualizarCarrito();
+        }
+        function vaciarCarrito() {
+            carrito = [];
+            document.getElementById('contador-carrito').textContent = '0';
+            actualizarCarrito();
+        }
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            alert('¡Compra finalizada! Gracias por tu compra.');
+            vaciarCarrito();
+            cerrarCarrito();
+        }
+        function filtrarCategoria(categoria) {
+            let todosLosProductos = document.querySelectorAll('.foto');
+            todosLosProductos.forEach(producto => {
+                producto.style.display = 'none';
+            });
+            if (categoria === 'all') {
+                todosLosProductos.forEach(producto => {
+                    producto.style.display = 'block';
+                });
+            } else {
+                let productosFiltrados = document.querySelectorAll(`.foto.${categoria}`);
+                productosFiltrados.forEach(producto => {
+                    producto.style.display = 'block';
+                });
+            }
+        }
+    </script>
+</body>
+</html>

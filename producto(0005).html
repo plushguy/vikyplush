@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descripción del Producto</title>
+    <link rel="stylesheet" href="producto.css">
+</head>
+<body>
+    <header>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <img src="img/logo.png" class="logo" alt="Logo de Vicky's Plushies">
+        <h1>Vicky's Plushies</h1>
+        <p>Fragmentos de felicidad</p>
+    </header>
+    <nav>
+			<a href="index.html">INICIO</a>
+	</nav>
+    <div class="producto">
+        <div class="imagen">
+            <img src="img/chango.png" alt="Peluche Producto">
+        </div>
+        <div class="descripcion">
+            <h1>Descripción del Producto</h1>
+            <div class="detalle">
+                <label>Nombre del Producto:</label>
+                <p>Chango Ignacio</p>
+            </div>
+            <div class="detalle">
+                <label>Precio:</label>
+                <p>$10.50</p>
+            </div>
+            <div class="detalle">
+                <label>Costo de Envío:</label>
+                <p>$5.00</p>
+            </div>
+            <div class="detalle">
+                <label>Tamaño:</label>
+                <p>16 cm</p>
+            </div>
+            <div class="detalle">
+                <label>Material:</label>
+                <p>Algodón suave y peluche</p>
+            </div>
+            <button class="btn-comprar" onclick="mostrarFormularioPago()">Comprar</button>
+        </div>
+    </div>
+    <div class="informacion-adicional">
+        <h2>Información Adicional</h2>
+        <div class="detalle">
+            <label>Baterías:</label>
+            <p>No necesita baterías</p>
+        </div>
+        <div class="detalle">
+            <label>Circuitos o Metales:</label>
+            <p>No incluye circuitos ni metales</p>
+        </div>
+        <div class="detalle">
+            <label>Piezas Pequeñas:</label>
+            <p>No contiene piezas pequeñas</p>
+        </div>
+        <div class="detalle">
+            <label>Franquicia:</label>
+            <p>Sin registrar</p>
+        </div>
+        <div class="detalle">
+            <label>Compañía que lo fabricó:</label>
+            <p>Sin registrar</p>
+        </div>
+    </div>
+    <div id="formulario-pago" class="formulario-pago oculto">
+        <h2>Datos de Pago</h2>
+        <label for="direccion">Dirección de Envío:</label>
+        <input type="text" id="direccion" placeholder="Calle, número, ciudad, etc.">
+        <label for="tarjeta">Número de Tarjeta (Débito o Crédito):</label>
+        <input type="text" id="tarjeta" placeholder="XXXX-XXXX-XXXX-XXXX">
+        <button onclick="enviarPago()">Confirmar Pago</button>
+    </div>    
+    <footer>
+        <p>&copy; 2025 Vicky's Plushies. Todos los derechos reservados.</p>
+        <p>Dirección: Fraccionamiento Delicias II</p>
+        <p>Teléfono: 664-670-7819</p>
+    </footer>
+    </body>
+    <script>
+        function mostrarFormularioPago() {
+    document.getElementById('formulario-pago').classList.remove('oculto');
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+function enviarPago() {
+    const direccion = document.getElementById('direccion').value;
+    const tarjeta = document.getElementById('tarjeta').value;
+    if (!direccion || !tarjeta) {
+        alert('Por favor completa todos los campos.');
+        return;
+    }
+    alert(`¡Compra exitosa!\nDirección: ${direccion}\nTarjeta: ${tarjeta}\nTu peluche estará en camino pronto`);
+    document.getElementById('formulario-pago').classList.add('oculto');
+}
+    </script>
+    </html>
